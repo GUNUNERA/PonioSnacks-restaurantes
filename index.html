@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PonioSnacks - Restaurant Tycoon 3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div id="overlay" class="overlay">
+        <div class="login-box">
+            <h1>PonioSnacks</h1>
+            <p>Digite seu nome do Roblox para entrar:</p>
+            <input type="text" id="nome-usuario" placeholder="Nome do jogador...">
+            <button onclick="entrarNoSite()">ENTRAR</button>
+        </div>
+    </div>
+
+    <div id="conteudo-principal" class="com-blur">
+        <header class="topo-site">
+            <h1 class="logo-principal">PonioSnacks</h1>
+            <p class="boas-vindas">Bem-vindo, <span id="display-nome">Visitante</span>!</p>
+        </header>
+
+        <section class="detalhes-restaurante">
+            <div class="container-detalhes">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-utensils"></i>
+                        <p><strong>Especialidade:</strong> Hamburgueres Artesanais e Sushi Premium.</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <p><strong>Horário:</strong> Aberto 24h (RT3).</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-star"></i>
+                        <p><strong>Meta:</strong> Qualidade 5 estrelas.</p>
+                    </div>
+                </div>
+                <div class="desc-box">
+                    <p>O PonioSnacks foca em trazer a melhor experiência de Drive-Thru. Com áreas dedicadas e um cardápio exclusivo, garantimos satisfação em cada pedido!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="galeria-section">
+            <h2>Nossa Galeria</h2>
+            <div class="slider-wrapper">
+                <div class="slider-box">
+                    <img id="slide-img" src="" alt="Slide">
+                    <button class="arrow prev" onclick="mudarSlide(-1)">&#10094;</button>
+                    <button class="arrow next" onclick="mudarSlide(1)">&#10095;</button>
+                </div>
+                <div class="caption-container">
+                    <p id="slide-text"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedback-final">
+            <div id="pergunta-feedback">
+                <h3>Deseja realizar um feedback?</h3>
+                <div class="botoes-escolha">
+                    <button class="btn-sim" onclick="mostrarFeedback()">SIM</button>
+                    <button class="btn-nao" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">NÃO</button>
+                </div>
+            </div>
+
+            <div id="area-feedback-oculta" class="hidden">
+                <div class="avaliacao-container">
+                    <h3>SUA AVALIAÇÃO:</h3>
+                    <div class="estrelas-wrapper">
+                        <div class="estrelas" id="star-box">
+                            <i class="far fa-star" data-index="0"></i>
+                            <i class="far fa-star" data-index="1"></i>
+                            <i class="far fa-star" data-index="2"></i>
+                            <i class="far fa-star" data-index="3"></i>
+                            <i class="far fa-star" data-index="4"></i>
+                        </div>
+                    </div>
+                    <p id="nota-display">Nota selecionada: 0.0</p>
+                    
+                    <form id="form-feedback" action="https://formspree.io/f/xaqqnkrq" method="POST">
+                        <input type="hidden" name="Jogador" id="hidden-nome">
+                        <input type="hidden" name="Avaliacao" id="hidden-estrelas" value="0">
+                        
+                        <div class="campo-opcional">
+                            <textarea name="Mensagem" id="mensagem" maxlength="75" placeholder="Comentário opcional (Máx 75 caracteres)"></textarea>
+                            <p class="char-count"><span id="count">0</span>/75</p>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">ENVIAR AGORA</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 PonioSnacks - Restaurant Tycoon 3</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
